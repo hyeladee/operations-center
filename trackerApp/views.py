@@ -1,8 +1,14 @@
 from django.shortcuts import render
+from django.views import generic
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
-def index(request):
-    return render(request, 'index.html')
+class HomepageView(generic.TemplateView):
+    template_name = "index.html"
 
-def index1(request):
-    return render(request, 'index1.html')
+class DashboardView(LoginRequiredMixin, generic.TemplateView):
+    template_name = "dashboard.html"
+
+# TODO signup page
+# class SignupView(generic.TemplateView):
+#     template_name = "signup.html"

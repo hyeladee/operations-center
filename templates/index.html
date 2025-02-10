@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="text-center mb-20">
+        <h1 class="sm:text-4xl text-3xl font-medium text-center title-font text-gray-900 dark:text-white mb-4">
+          Welcome to the Operations Tracker App
+        </h1>
+        <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-400">
+          You can see some live dashboard statistics, create, view, update or delete records for hotel bookings, car hires usage and office expenses.
+        </p>
+      </div>
+
+      {% if request.user.is_authenticated %}
+        <div class="flex justify-center w-full">
+          <a href="{% url "dashboard" %}" class="inline-block text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">
+            Dashboard
+          </a>
+        </div>
+      {% else %}      
+        <div class="flex justify-center w-full">
+          <a href="{% url "login" %}" class="inline-block text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">
+            Login
+          </a>
+        </div>
+      {% endif %}
+    </div>
+</section>
+{% endblock %}
