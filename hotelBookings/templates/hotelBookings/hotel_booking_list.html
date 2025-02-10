@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="text-gray-600 dark:text-gray-400 dark:bg-gray-900 body-font">
+  <div class="container px-5 py-5 mx-auto">
+    <div class="flex flex-col text-center w-full mb-10">
+      <h1 class="sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900 dark:text-white">
+        Hotel Bookings{{ hotel_bookings.guest_name }}
+      </h1>
+      <p class="mx-auto leading-relaxed text-base">All hotel bookings are here:</p>
+    </div>
+    <div class="w-full mx-auto overflow-auto">
+      <table class="table-auto w-full text-left whitespace-no-wrap">
+        <thead>
+          <tr>
+            <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 dark:text-white text-sm bg-gray-100 dark:bg-gray-800 rounded-tl rounded-bl">S/N</th>
+            <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 dark:text-white text-sm bg-gray-100 dark:bg-gray-800">Guest Name</th>
+            <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 dark:text-white text-sm bg-gray-100 dark:bg-gray-800">Check-in</th>
+            <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 dark:text-white text-sm bg-gray-100 dark:bg-gray-800">Check-out</th>
+            <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 dark:text-white text-sm bg-gray-100 dark:bg-gray-800">Nights</th>
+            <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 dark:text-white text-sm bg-gray-100 dark:bg-gray-800">Cost</th>
+            <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 dark:text-white text-sm bg-gray-100 dark:bg-gray-800">Hotel</th>
+            <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 dark:text-white text-sm bg-gray-100 dark:bg-gray-800">Status</th>
+            <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 dark:text-white text-sm bg-gray-100 dark:bg-gray-800 rounded-tr rounded-br">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for hotel_booking in hotel_bookings %}
+                <tr>
+                    <td class="px-4 py-3">{{ hotel_booking.serial }}</td>
+                    <td class="px-4 py-3">{{ hotel_booking.guest_name }}</td>
+                    <td class="px-4 py-3">{{ hotel_booking.check_in }}</td>
+                    <td class="px-4 py-3">{{ hotel_booking.check_out }}</td>
+                    <td class="px-4 py-3">{{ hotel_booking.days }}</td>
+                    <td class="px-4 py-3">{{ hotel_booking.cost }}</td>
+                    <td class="px-4 py-3">{{ hotel_booking.hotel_name }}</td>
+                    <td class="px-4 py-3">{{ hotel_booking.status }}</td>
+                    <td class="px-4 py-3">{{ hotel_booking.notes }}</td>
+                </tr>
+            
+            {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="flex pl-4 mt-4 lg:w-2/3 w-full mx-auto">
+      <a class="text-blue-500 dark:text-blue-400 inline-flex items-center md:mb-2 lg:mb-0">Learn More
+        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+          <path d="M5 12h14M12 5l7 7-7 7"></path>
+        </svg>
+      </a>
+      <button class="flex ml-auto text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded">Create New Record</button>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

@@ -15,13 +15,19 @@ class Hotel(models.Model):
         return self.name
     
 class HotelBooking(models.Model):
+    STATUS_CHOICES = (
+        ('Paid', 'Paid'),
+        ('Processing', 'Processing'),
+        ('Awaiting Invoice', 'Awaiting Invoice'),
+    )
+
     guest_name = models.CharField(max_length=100)
     # email = models.EmailField()
     check_in = models.DateField()
     check_out = models.DateField(null=True, blank=True)
     hotel_name = models.ForeignKey('Hotel', on_delete=models.PROTECT)
-    paid = models.BooleanField(default=False)
-    notes = models.TextField(blank=True)
+    status = models.CharField(choices=STATUS_CHOICES, max_length=100, null=True, blank=True)
+    notes = models.TextField(null=True, blank=True)
 
     def clean(self):
         if self.check_out and self.check_in and self.check_out <= self.check_in:
