@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load tailwind_filters %}
+
+{% block title %}{{ page_title }}{% endblock title %}
+
+{% block content %}
+
+<div class="max-w-lg mx-auto px-5 py-5 dark:text-gray-200 mb-96">
+    <div class="py-10">
+        <h1 class="text-2xl font-bold text-center">{{ form_title }}</h1>
+        <p class="text-center">{{ form_subtitle }}</p>        
+    </div>
+    <form method="post" class="dark:text-gray-200 dark:bg-gray-950">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <button type="submit" class="mt-5 w-full bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-md text-white">
+            {{ form_submit_text }}
+        </button>
+    </form>
+    {% if delete_url %}
+    <div class="mt-10 text-center">
+        <a href="{% url 'hotels:delete-booking' booking_record.pk %}" class="text-red-500 hover:text-red-600 py-2 px-4 border border-red-500 rounded-md">
+            Delete record
+        </a>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock content %}
