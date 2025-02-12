@@ -51,15 +51,27 @@ class HotelBookingUpdateView(LoginRequiredMixin, generic.UpdateView):
             ' on ' + str(self.object.check_in)
         )
         context['form_submit_text'] = 'Update'
-        context['delete_url'] = True
+        context['update_url'] = True
         return context
 
     def get_success_url(self) -> str:
         return reverse('hotels:list-bookings')
 
 class HotelBookingDeleteView(LoginRequiredMixin, generic.DeleteView):
-    template_name = "delete_template.html"
+    template_name = "form_template.html"
     model = models.HotelBooking
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['page_title'] = 'Delete Hotel Record'
+        context['form_title'] = 'Delete booking for ' + str(self.object.guest_name)
+        context['form_subtitle'] = ('Are you sure you want to delete the booking for ' + str(self.object.guest_name) +
+            ' at ' + str(self.object.hotel_name) +
+            ' on ' + str(self.object.check_in)
+        )
+        context['form_submit_text'] = 'Confirm Delete'
+        context['delete_url'] = True
+        return context
+    
     def get_success_url(self) -> str:
         return reverse('hotels:list-bookings')

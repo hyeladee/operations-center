@@ -9,7 +9,7 @@ class HotelBookingModelForm(forms.ModelForm):
         widget=forms.DateInput(attrs={'type': 'date', 'class': 'form-input'}),
         required=False
     )
-    
+
     class Meta:
         model = HotelBooking
         fields = '__all__'
