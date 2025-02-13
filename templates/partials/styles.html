@@ -1,14 +1,9 @@
-{% comment %} Common Tailwind Classes {% endcomment %}
-
-{% with 
-    btn_base="inline-flex items-center py-2 px-4 rounded-md focus:outline-none transition-colors"
-    btn_primary="bg-blue-500 hover:bg-blue-600 text-white"
-    btn_danger="bg-red-500 hover:bg-red-600 text-white"
-    btn_outline="border"
-    text_muted="text-gray-600 dark:text-gray-400"
-    bg_base="bg-white dark:bg-gray-950"
-    card="rounded-lg shadow-sm p-6 bg-white dark:bg-gray-800"
-    heading="font-medium text-gray-900 dark:text-white"
-    table_header="px-4 py-3 title-font tracking-wider font-medium text-sm bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white"
-    table_cell="px-4 py-3"
-%}
+{% comment %} Define common Tailwind CSS classes. You could also add these as
+CSS classes in your Tailwind config. {% endcomment %} {% with btn="inline-flex
+items-center py-2 px-4 rounded-md focus:outline-none transition-colors",
+btn_primary="bg-blue-500 hover:bg-blue-600 text-white", btn_danger="bg-red-500
+hover:bg-red-600 text-white", text_muted="text-gray-600 dark:text-gray-400",
+bg_base="bg-white dark:bg-gray-950", card="rounded-lg shadow-sm p-6 bg-gray-50
+dark:bg-gray-800", heading="font-medium text-gray-900 dark:text-white",
+table_header="px-4 py-3 text-sm font-medium bg-gray-200 dark:bg-gray-800
+text-gray-900 dark:text-white", table_cell="px-4 py-3" %} {% endwith %}

@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
+from . import forms
+from django.urls import reverse
 from datetime import datetime
+from django.contrib.auth import login
 
 # Create your views here.
 class HomepageView(generic.TemplateView):
@@ -29,8 +32,16 @@ class DashboardView(LoginRequiredMixin, generic.TemplateView):
 
         context['greeting'] = greeting
         return context
-    
 
-# TODO signup page
-# class SignupView(generic.TemplateView):
-#     template_name = "signup.html"
+class SignupView(generic.CreateView):
+    template_name = "registration/signup.html"
+    form_class = forms.CustomUserCreationForm
+    
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        user = form.save()
+        login(self.request, user)
+        return response
+    
+    def get_success_url(self):
+        return reverse('dashboard')
