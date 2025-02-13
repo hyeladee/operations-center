@@ -1,5 +1,5 @@
 from django import forms
-from .models import HotelBooking, Hotel
+from .models import HotelBooking
 
 class HotelBookingModelForm(forms.ModelForm):
     check_in = forms.DateField(

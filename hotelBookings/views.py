@@ -52,6 +52,8 @@ class HotelBookingUpdateView(LoginRequiredMixin, generic.UpdateView):
         )
         context['form_submit_text'] = 'Update'
         context['update_url'] = True
+        context['hotel'] = True
+
         return context
 
     def get_success_url(self) -> str:
@@ -71,6 +73,7 @@ class HotelBookingDeleteView(LoginRequiredMixin, generic.DeleteView):
         )
         context['form_submit_text'] = 'Confirm Delete'
         context['delete_url'] = True
+        context['hotel'] = True
         return context
     
     def get_success_url(self) -> str:
