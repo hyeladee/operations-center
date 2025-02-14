@@ -14,7 +14,7 @@
         <a href="{% url 'dashboard' %}" class="mr-5 hover:text-gray-900 dark:hover:text-white">Dashboard</a>
         <a href="{% url 'hotels:list-bookings' %}" class="mr-5 hover:text-gray-900 dark:hover:text-white">Hotel Bookings</a>
         <a href="{% url 'carhires:list-carhires' %}" class="mr-5 hover:text-gray-900 dark:hover:text-white">Car Hires</a>
-        <a href="#" class="mr-5 hover:text-gray-900 dark:hover:text-white">Office Expenses</a>
+        <a href="{% url 'office-expenses:list-office-expenses' %}" class="mr-5 hover:text-gray-900 dark:hover:text-white">Office Expenses</a>
         <form action="{% url "logout" %}" method="post" >
           {% csrf_token %}
           <button type="submit" class="inline-flex items-center bg-gray-100 dark:bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 dark:hover:bg-gray-700 rounded text-base mt-4 md:mt-0">
@@ -33,7 +33,7 @@
         </a>
       {% endif %}
     </nav>
-    <div class="relative inline-block">
+    <div class="relative inline-block pl-4">
       <!-- Main toggle button -->
       <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2.5">
           <!-- Dark icon -->

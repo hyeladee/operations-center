@@ -34,7 +34,7 @@ class DashboardView(LoginRequiredMixin, generic.TemplateView):
         return context
 
 class SignupView(generic.CreateView):
-    template_name = "registration/signup.html"
+    template_name = "form_template.html"
     form_class = forms.CustomUserCreationForm
     
     def form_valid(self, form):
@@ -42,6 +42,14 @@ class SignupView(generic.CreateView):
         user = form.save()
         login(self.request, user)
         return response
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['page_title'] = 'Create New Account'
+        context['form_title'] = 'Create an account'
+        context['form_subtitle'] = 'Please enter details to create your account'
+        context['form_submit_text'] = 'Create account'
+        return context
     
     def get_success_url(self):
         return reverse('dashboard')

@@ -8,7 +8,7 @@
 <div class="max-w-lg mx-auto px-5 py-5 dark:text-gray-200 mb-96">
     <div class="py-10">
         <h1 class="text-2xl font-bold text-center">{{ form_title }}</h1>
-        <p class="text-center">{{ form_subtitle }}</p>        
+        <p class="text-center">{{ form_subtitle }}</p>
     </div>
     <form method="post" class="dark:text-gray-200 dark:bg-gray-950">
         {% csrf_token %}
@@ -29,6 +29,11 @@
             Delete record
         </a>
         {% endif %}
+        {% if office_expense %}
+        <a href="{% url 'office-expenses:delete-office-expense' office_expenses.pk %}" class="text-red-500 hover:text-red-600 py-2 px-4 border border-red-500 rounded-md">
+            Delete record
+        </a>
+        {% endif %}
     </div>
     {% elif delete_url %}
     <div class="mt-10 text-center">
@@ -42,8 +47,12 @@
             Go back to car hires
         </a>
         {% endif %}
+        {% if office_expense %}
+        <a href="{% url 'office-expenses:list-office-expenses' %}" class="text-blue-500 hover:text-blue-600 py-2 px-4 border border-blue-500 rounded-md">
+            Go back to office expenses
+        </a>
+        {% endif %}
     </div>
-    
     {% endif %}
 </div>
 
