@@ -101,6 +101,8 @@ celerybeat.pid
 
 # Environments
 .env
+.env.dev
+.env.prod
 .venv
 env/
 venv/
@@ -254,3 +256,6 @@ export
 # Temporary folders
 .tmp/
 .temp/
+
+# SQLite files
+*.sqlite3
