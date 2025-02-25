@@ -33,4 +33,4 @@ class OfficeExpense(models.Model):
     notes = models.TextField(null=True, blank=True)
 
     def __str__(self):
-        return self.passenger_name
+        return self.description
