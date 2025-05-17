@@ -1,6 +1,6 @@
 # Operations Center
 
-**A lightweight, modular Django suite** for tracking car hires, hotel bookings, office expenses, and overall operations.
+**A lightweight, modular Django suite** for tracking car hires, hotel bookings, office expenses, and overall operations, protected with a strong authentication system.
 
 ---
 
