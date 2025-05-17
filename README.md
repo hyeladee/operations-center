@@ -48,8 +48,8 @@ cp .env.example .env
 ### 4. Migrate & Run
 
 ```bash
-pipenv run python manage.py migrate
-pipenv run python manage.py runserver
+python manage.py migrate
+python manage.py runserver
 
 # if you prefer a production ready server
 uvicorn operationsTracker.asgi:application --host 0.0.0.0 --port 8000
