@@ -8,6 +8,10 @@
 
 Checkout live project here: [Operations Center](https://ops-tracker-p017.onrender.com)
 
+NOTE DOR LIVE DEMO
+* For full access demo, use admin as username and password
+* Don't use real information when registering as this is a demo app. However, even if you do, be rest assured that data is not retained for long (until server shuts down which happens whenever there is inactivity)
+
 ---
 
 ## 🚀 Quickstart
